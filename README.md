@@ -18,12 +18,9 @@ npm install gulp
 
 ## Build & deploy
 
-
 ```
 gulp
 ```
-
-# old
 
 wait until gulp command is finished
  
@@ -34,10 +31,6 @@ gco "build"
 git push
 cd ../720dreams-page
 ```
-
-# new
-
-* just push
 
 © [720dreams LLC](http://720dreams.com)
 
