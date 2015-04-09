@@ -78,15 +78,16 @@ a {
 
 .hero {
   width: 100%;
-  background-image: url('/images/scene.jpg');
-  background-repeat: repeat, no-repeat;
-  background-size: cover;
-  background-position: 0% 0%, center center;
-  background-attachment: scroll, scroll;
 
+  background: url('/images/scene.jpg') no-repeat center center fixed;
+  background-size: 100%;
+  //background-image: url('/images/scene.jpg');
+  //background-repeat: repeat, no-repeat;
+  background-size: cover;
+  //background-position: 0% 0%, center center;
+  //background-attachment: scroll, scroll;
   padding-bottom: 0;
-  height: 500px;
-  height: 80vh;
+  height: 600px;
   color: $splash-color;
   text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
 
@@ -143,7 +144,6 @@ a {
     text-align: right;
     margin-bottom: 40px;
   }
-
 }
 
 .group:after {
@@ -159,7 +159,9 @@ a {
 }
 
 @media (max-width: 992px) {
-
+  .hero {
+    height: 500px;
+  }
 }
 
 @media (max-width: 768px) {
