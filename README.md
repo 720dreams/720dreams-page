@@ -19,6 +19,11 @@ npm install gulp
 
 ```
 gulp
+```
+
+wait until gulp command is finished
+ 
+```
 cp -R dist/ ../720dreams.github.io
 cd ../720dreams.github.io
 gco "build"
