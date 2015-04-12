@@ -16,21 +16,19 @@ npm install
 npm install gulp
 ```
 
-## Build & deploy
+## Development
+
+```
+gulp serve
+```
+
+## Build
 
 ```
 gulp
 ```
 
-wait until gulp command is finished
- 
-```
-cp -R dist/ ../720dreams.github.io
-cd ../720dreams.github.io
-gco "build"
-git push
-cd ../720dreams-page
-```
+Deployment is done with codeship.com
 
 © [720dreams LLC](http://720dreams.com)
 
