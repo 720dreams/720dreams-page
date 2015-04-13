@@ -135,9 +135,10 @@ gulp.task('wiredep', function () {
     .pipe(gulp.dest('app'));
 });
 
-gulp.task('validation', ['jshint'], function () {
+// https://github.com/bezoerb/gulp-htmlhint
+gulp.task('validate', ['jshint'], function () {
   gulp.src("./app/*.html")
-    .pipe(htmlhint('htmlhintrc.json'))
+    .pipe(htmlhint())
     .pipe(htmlhint.reporter())
 });
 
