@@ -5,6 +5,7 @@ var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
+var htmlhint = require("gulp-htmlhint");
 
 gulp.task('styles', function () {
   return gulp.src('app/styles/main.scss')
@@ -132,6 +133,12 @@ gulp.task('wiredep', function () {
       ignorePath: /^(\.\.\/)*\.\./
     }))
     .pipe(gulp.dest('app'));
+});
+
+gulp.task('validation', function () {
+  gulp.src("./app/*.html")
+    .pipe(htmlhint('htmlhintrc.json'))
+    .pipe(htmlhint.reporter())
 });
 
 gulp.task('build', ['jshint', 'html', 'images', 'fonts', 'extras'], function () {
