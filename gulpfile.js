@@ -135,7 +135,7 @@ gulp.task('wiredep', function () {
     .pipe(gulp.dest('app'));
 });
 
-gulp.task('validation', function () {
+gulp.task('validation', ['jshint'], function () {
   gulp.src("./app/*.html")
     .pipe(htmlhint('htmlhintrc.json'))
     .pipe(htmlhint.reporter())
