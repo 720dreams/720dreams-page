@@ -52,10 +52,6 @@ a {
   max-width: 100px;
 }
 
-.upper-logo-small {
-  max-width: 60px;
-}
-
 .lower-logo {
   max-width: 200px;
 }
@@ -90,20 +86,9 @@ a {
 
 .hero {
   width: 100%;
-
   background: url('/images/scene.jpg') no-repeat center center fixed;
-  //background-size: 100%;
-
   background-size: cover;
   background-attachment: scroll;
-
-  //background-image: url('/images/scene.jpg');
-  //background-repeat: repeat, no-repeat;
-  //@include vendor-prefix(background-size, cover);
-  //background-position: 100% 100%, center center;
-  //background-attachment: scroll, scroll;
-  //max-width:100%;
-
   padding-bottom: 0;
   height: 600px;
   color: $splash-color;
@@ -113,10 +98,6 @@ a {
     font-size: 3.2em;
     margin-top: 20%;
   }
-}
-
-.align-center {
-  text-align: center;
 }
 
 .margin-bottom {
