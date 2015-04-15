@@ -36,23 +36,25 @@ $(document).ready(function () {
   /* /views.html?contactEmail=conact@720dreams.com&logo=/images/logo-white-text.png&nameApp=Super%20App&urlWeb=http://720dreams.com&accentColor=009688&title=Privacy%20Policy
    */
 
-  var content = {
-    contactEmail: getParameterByName('contactEmail', 'conact@720dreams.com'),
-    logo: getParameterByName('logo', ''),
-    nameApp: getParameterByName('nameApp', ''),
-    urlWeb: getParameterByName('urlWeb', 'http://720dreams.com'),
-    accentColor: getParameterByName('accentColor', '#009688'),
-    title: getParameterByName('title', '')
-  };
+  if ($('#content').length) {
+    
+    var content = {
+      contactEmail: getParameterByName('contactEmail', 'conact@720dreams.com'),
+      logo: getParameterByName('logo', ''),
+      nameApp: getParameterByName('nameApp', ''),
+      urlWeb: getParameterByName('urlWeb', 'http://720dreams.com'),
+      accentColor: getParameterByName('accentColor', '#009688'),
+      title: getParameterByName('title', '')
+    };
 
-  document.title = content.title;
+    document.title = content.title;
 
-  setContent('#header-template', content);
-  setContent('#' + slugify(content.title) + '-template', content);
+    setContent('#header-template', content);
+    setContent('#' + slugify(content.title) + '-template', content);
 
-  delete content.title;
-  content.query = jQuery.param(content);
-  setContent('#footer-template', content);
-
+    delete content.title;
+    content.query = jQuery.param(content);
+    setContent('#footer-template', content);
+  }
 
 });
