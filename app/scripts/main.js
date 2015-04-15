@@ -120,6 +120,12 @@
     return str.join('&');
   }
 
+  function getLocation(href) {
+    var l = document.createElement("a");
+    l.href = href;
+    return l;
+  }
+
   /* /views.html?contactEmail=conact@720dreams.com&logo=%2Fimages%2Flogo-white-text.png&nameApp=Super%20App&urlWeb=http%3A%2F%2F720dreams.com&accentColor=009688&title=Privacy%20Policy
    */
   var root = document.getElementById('content');
@@ -135,6 +141,8 @@
       pageTitle: getParameterByName('title', 'Information')
     };
 
+    content.urlWebDisplay = getLocation(content.urlWeb).hostname
+    
     var title = content.pageTitle;
 
     if (content.name) {
