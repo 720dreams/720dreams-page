@@ -121,7 +121,7 @@
   }
 
   function getLocation(href) {
-    var l = document.createElement("a");
+    var l = document.createElement('a');
     l.href = href;
     return l;
   }
@@ -141,15 +141,14 @@
       pageTitle: getParameterByName('title', 'Information')
     };
 
-    content.urlWebDisplay = getLocation(content.urlWeb).hostname
-    
-    var title = content.pageTitle;
+    content.urlWebDisplay = getLocation(content.urlWeb).hostname;
 
+    var title = content.pageTitle;
     if (content.name) {
       title += ' | ' + content.name;
     }
-
     window.document.title = title;
+
     content.query = serialize(content);
 
     setContent(root, 'header-template', content);
