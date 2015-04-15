@@ -51,7 +51,12 @@
         <div class="container">
           <div class="row">
             <div class="col-sm-12">
-              <h1 class="heading"><%-pageTitle%></h1>
+              <h1 class="heading">
+                <%-pageTitle%>
+                <% if (name) { %>
+                <span class="light">- <%-name%></span>
+                <% } %>
+              </h1>
             </div>
 
             <div class="col-sm-12 light">
@@ -78,7 +83,7 @@
             <img src="<%-logo%>" class="lower-logo">
           </a>
           <% } %>
-          <div class="author align-center margin-top small">
+          <div class="author align-center margin-top light">
             <a href="mailto:<%-contactEmail%>">Contact us</a> &bull;
             <a href="/views.html?title=About&<%-query %>">About</a> &bull;
             <a href="/views.html?title=Privacy%20Policy&<%-query %>">Privacy Policy</a> &bull;
@@ -350,7 +355,7 @@
       responding to your requests/inquiries, servicing your purchase orders, and improving our services.</p>
 
     <p>We may also use the information you provided us to contact your from time to time to provide  you with important
-      information, required notices and marketing promotions</p> 
+      information, required notices and marketing promotions.</p>
 
     <p>Our Service does not collect precise information about the location of your mobile device. </p>
 
@@ -380,13 +385,14 @@
     <h2>Data Retention Policy, Managing Your Information</h2>
 
     <p>We will retain User Provided data for as long as you use
-    the Application and for a reasonable time  thereafter. We will retain Automatically Collected information for up to
-    24
-    months and thereafter  may store it in aggregate. If you’d like us to delete User Provided Data that you have
-    provided
-    via  the Application, please contact us at <%- contactEmail %> and we will respond in a  reasonable time. Please
-    note
-    that some or all of the User Provided Data may be required in order  for the Application to function properly.</p>
+      the Application and for a reasonable time  thereafter. We will retain Automatically Collected information for up
+      to
+      24
+      months and thereafter  may store it in aggregate. If you’d like us to delete User Provided Data that you have
+      provided
+      via  the Application, please contact us at <%- contactEmail %> and we will respond in a  reasonable time. Please
+      note
+      that some or all of the User Provided Data may be required in order  for the Application to function properly.</p>
 
     <h2>Log Data</h2>
 

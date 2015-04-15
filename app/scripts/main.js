@@ -129,12 +129,19 @@
       contactEmail: getParameterByName('contactEmail', 'conact@720dreams.com'),
       logo: getParameterByName('logo', ''),
       nameApp: getParameterByName('nameApp', ''),
+      name: getParameterByName('name', getParameterByName('nameApp', '')),
       urlWeb: getParameterByName('urlWeb', 'http://720dreams.com'),
       accentColor: getParameterByName('accentColor', '#009688'),
       pageTitle: getParameterByName('title', 'Information')
     };
 
-    window.document.title = content.pageTitle;
+    var title = content.pageTitle
+
+    if (content.name) {
+      title += ' | ' + content.name
+    }
+
+    window.document.title = title;
     content.query = serialize(content);
 
     setContent(root, 'header-template', content);
