@@ -145,7 +145,7 @@ gulp.task('validate', ['jshint'], function () {
 });
 
 gulp.task('revision', [], function () {
-  return gulp.src(['dist/**/*.css', 'dist/**/*.js', 'dist/**/*.jpg', 'dist/**/*.png'])
+  return gulp.src(['dist/**/*.css', 'dist/**/*.js', 'dist/**/*.jpg', 'dist/**/*.png', 'dist/**/*.svg'])
     .pipe(rev())
     .pipe(gulp.dest('dist'))
     .pipe(rev.manifest())
@@ -159,7 +159,6 @@ gulp.task('revreplace', ['revision'], function () {
     .pipe(revReplace({manifest: manifest}))
     .pipe(gulp.dest('dist'));
 });
-
 
 gulp.task('build', ['validate', 'html', 'images', 'fonts', 'extras'], function () {
   gulp.start('revreplace');
