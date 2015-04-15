@@ -142,7 +142,7 @@ gulp.task('validate', ['jshint'], function () {
     .pipe(htmlhint.reporter())
 });
 
-gulp.task('build', ['jshint', 'html', 'images', 'fonts', 'extras'], function () {
+gulp.task('build', ['validate', 'html', 'images', 'fonts', 'extras'], function () {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 

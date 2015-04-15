@@ -29,6 +29,11 @@
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild -->
 
+  <!-- build:js scripts/main.js -->
+  <script src="scripts/main.js"></script>
+  <!-- endbuild -->
+
+
 </head>
 <body>
 <!--[if lt IE 10]>
@@ -37,6 +42,7 @@
   your browser</a> to improve your experience.
 </div>
 <![endif]-->
+
 
 <div class="full-bg hero">
   <div class="container">
@@ -86,7 +92,8 @@
         <h2>CardBird</h2>
 
         <p>Bunch of Business Cards on your desk? CardBird is your daily friend for Business Card management. Finally,
-          there is a painless way of adding business card contacts to your address book and making a easy follow-up.</p>
+          there is a painless way of adding business card contacts to your address book and making a easy
+          follow-up.</p>
 
         <p><a href="http://cardbird.io/" class="small underline" target="_blank">More ...</a></p>
       </div>
@@ -241,16 +248,19 @@
         <img src="/images/logo-white-text.png" alt="logo" class="lower-logo">
 
         <div class="footer-links align-center margin-top small">
+
           <a href="mailto:contact@720dreams.com">Contact us</a> &mdash;
-          <a href="/about.html">About & Privacy Policy</a> &mdash;
+          <a href="/views.html?title=About&logo=/images/logo-white-text.png">About</a> &mdash;
+          <a href="/views.html?title=Privacy%20Policy&logo=/images/logo-white-text.png">Privacy Policy</a> &mdash;
+          <a href="/views.html?title=Terms%20of%20Service&logo=/images/logo-white-text.png">Terms of Service</a> &mdash;
           <a href="http://720dreams.com" target="_blank">© 2015, 720dreams LLC</a>
+
         </div>
 
       </div>
     </div>
   </div>
 </div>
-<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <script>
   (function (b, o, i, l, e, r) {
     b.GoogleAnalyticsObject = l;
@@ -266,62 +276,6 @@
   }(window, document, 'script', 'ga'));
   ga('create', 'UA-58650764-6');
   ga('send', 'pageview');
-</script>
-
-<script>
-
-  function currentYPosition() {
-    // Firefox, Chrome, Opera, Safari
-    if (self.pageYOffset) return self.pageYOffset;
-    // Internet Explorer 6 - standards mode
-    if (document.documentElement && document.documentElement.scrollTop)
-      return document.documentElement.scrollTop;
-    // Internet Explorer 6, 7 and 8
-    if (document.body.scrollTop) return document.body.scrollTop;
-    return 0;
-  }
-
-  function elmYPosition(eID) {
-    var elm = document.getElementById(eID);
-    var y = elm.offsetTop;
-    var node = elm;
-    while (node.offsetParent && node.offsetParent != document.body) {
-      node = node.offsetParent;
-      y += node.offsetTop;
-    }
-    return y;
-  }
-
-  function smoothScroll(eID) {
-    var startY = currentYPosition();
-    var stopY = elmYPosition(eID);
-    var distance = stopY > startY ? stopY - startY : startY - stopY;
-    if (distance < 100) {
-      scrollTo(0, stopY);
-      return;
-    }
-    var speed = Math.round(distance / 10);
-    if (speed >= 20) speed = 20;
-    var step = Math.round(distance / 25);
-    var leapY = stopY > startY ? startY + step : startY - step;
-    var timer = 0;
-    if (stopY > startY) {
-      for (var i = startY; i < stopY; i += step) {
-        setTimeout("window.scrollTo(0, " + leapY + ")", timer * speed);
-        leapY += step;
-        if (leapY > stopY) leapY = stopY;
-        timer++;
-      }
-      return;
-    }
-    for (var i = startY; i > stopY; i -= step) {
-      setTimeout("window.scrollTo(0, " + leapY + ")", timer * speed);
-      leapY -= step;
-      if (leapY < stopY) leapY = stopY;
-      timer++;
-    }
-  }
-
 </script>
 
 </body>
