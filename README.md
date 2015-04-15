@@ -13,7 +13,8 @@ Company Page of [720dreams LLC](720dreams.com)
 
 ```
 npm install
-npm install gulp
+npm install gulp bower
+bower install
 ```
 
 ## Development
