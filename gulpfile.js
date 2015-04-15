@@ -5,7 +5,9 @@ var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
-var htmlhint = require("gulp-htmlhint");
+var htmlhint = require('gulp-htmlhint');
+var rev = require('gulp-rev');
+var revReplace = require('gulp-rev-replace');
 
 gulp.task('styles', function () {
   return gulp.src('app/styles/main.scss')
@@ -137,15 +139,36 @@ gulp.task('wiredep', function () {
 
 // https://github.com/bezoerb/gulp-htmlhint
 gulp.task('validate', ['jshint'], function () {
-  gulp.src("./app/*.html")
+  gulp.src('./app/*.html')
     .pipe(htmlhint())
     .pipe(htmlhint.reporter())
 });
 
+gulp.task('revision', [], function () {
+  return gulp.src(['dist/**/*.css', 'dist/**/*.js', 'dist/**/*.jpg', 'dist/**/*.png'])
+    .pipe(rev())
+    .pipe(gulp.dest('dist'))
+    .pipe(rev.manifest())
+    .pipe(gulp.dest('dist'))
+})
+
+gulp.task('revreplace', ['revision'], function () {
+  var manifest = gulp.src('./dist/rev-manifest.json');
+
+  return gulp.src('dist/*.html')
+    .pipe(revReplace({manifest: manifest}))
+    .pipe(gulp.dest('dist'));
+});
+
+
 gulp.task('build', ['validate', 'html', 'images', 'fonts', 'extras'], function () {
+  gulp.start('revreplace');
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
 gulp.task('default', ['clean'], function () {
   gulp.start('build');
 });
+
+
+
