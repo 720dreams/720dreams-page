@@ -2,6 +2,7 @@
   "name": "720dreams-page",
   "dependencies": {
     "jquery": "~2.1.3",
-    "handlebars": "~3.0.0"
+    "handlebars": "~3.0.0",
+    "underscore": "~1.8.3"
   }
 }

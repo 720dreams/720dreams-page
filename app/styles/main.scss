@@ -77,6 +77,10 @@ a {
 
   .light {
     color: rgba(255, 255, 255, 0.7);
+
+    a {
+      color: rgba(255, 255, 255, 0.7);
+    }
   }
 }
 
@@ -141,6 +145,8 @@ a {
     margin: 30px 0;
   }
 
+  font-size: 16px;
+
   h1, h2 {
     border-top: solid rgba(0, 0, 0, 0.2) 1px;
     padding-top: 15px;
@@ -154,6 +160,13 @@ a {
     text-align: right;
     margin-bottom: 40px;
   }
+
+  a {
+    color: #000000;
+    text-decoration: underline;
+
+  }
+
 }
 
 .group:after {
@@ -203,7 +216,6 @@ a {
     font-size: 16px;
   }
 }
-
 
 @media (max-width: 650px) {
 

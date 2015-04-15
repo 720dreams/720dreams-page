@@ -32,27 +32,35 @@
 
 <div id="content"></div>
 
-<script id="header-template" type="text/x-handlebars-template">
-  <div class="full-bg bg-primary" style="background-color: #{{accentColor}}">
+<script id="header-template" type="text/template">
+  <div class="full-bg bg-primary" style="background-color: #<%-accentColor%>">
     <div class="container">
       <div class="row">
         <div class="col-sm-6">
-          <a class="pull-left btn btn-white btn-outline" href="{{urlWeb}}"
+          <a class="pull-left btn btn-white btn-outline" href="<%-urlWeb%>"
              role="button">Home</a>
         </div>
         <div class="col-sm-6">
-          {{#if logo}}
-          <a href="{{urlWeb}}"
-             role="button"><img src="{{logo}}" class="pull-right upper-logo"></a>
-          {{/if}}
+          <% if (logo) { %>
+          <a href="<%-urlWeb%>"
+             role="button"><img src="<%-logo%>" class="pull-right upper-logo"></a>
+          <% } %>
         </div>
       </div>
       <div class="row">
         <div class="container">
           <div class="row">
             <div class="col-sm-12">
-              <h1 class="heading">{{title}}</h1>
+              <h1 class="heading"><%-pageTitle%></h1>
             </div>
+
+            <div class="col-sm-12 light">
+              <a href="mailto:<%-contactEmail%>">Contact us</a> &bull;
+              <a href="/views.html?title=About&<%-query %>">About</a> &bull;
+              <a href="/views.html?title=Privacy%20Policy&<%-query %>">Privacy Policy</a> &bull;
+              <a href="/views.html?title=Terms%20of%20Service&<%-query %>">Terms of Service</a>
+            </div>
+
           </div>
         </div>
       </div>
@@ -60,19 +68,21 @@
   </div>
 </script>
 
-<script id="footer-template" type="text/x-handlebars-template">
-  <div class="full-bg bg-primary-2nd footer" style="background-color: #{{accentColor}}">
+<script id="footer-template" type="text/template">
+  <div class="full-bg bg-primary-2nd footer" style="background-color: #<%-accentColor%>">
     <div class="container align-center margin-top">
       <div class="row">
         <div class="col-sm-12">
-          {{#if logo}}
-          <img src="{{logo}}" class="lower-logo">
-          {{/if}}
+          <% if (logo) { %>
+          <a href="<%-urlWeb%>">
+            <img src="<%-logo%>" class="lower-logo">
+          </a>
+          <% } %>
           <div class="author align-center margin-top small">
-            <a href="mailto:{{contactEmail}}">Contact us</a> &bull;
-            <a href="/views.html?title=About&{{query}}">About</a> &bull;
-            <a href="/views.html?title=Privacy%20Policy&{{query}}">Privacy Policy</a> &bull;
-            <a href="/views.html?title=Terms%20of%20Service&{{query}}">Terms of Service</a> &bull;
+            <a href="mailto:<%-contactEmail%>">Contact us</a> &bull;
+            <a href="/views.html?title=About&<%-query %>">About</a> &bull;
+            <a href="/views.html?title=Privacy%20Policy&<%-query %>">Privacy Policy</a> &bull;
+            <a href="/views.html?title=Terms%20of%20Service&<%-query %>">Terms of Service</a> &bull;
             <a href="http://720dreams.com" target="_blank">© 2015, 720dreams LLC</a>
           </div>
 
@@ -82,54 +92,61 @@
   </div>
 </script>
 
-<script id="about-template" type="text/x-handlebars-template">
+<script id="about-template" type="text/template">
   <div class="container margin-top margin-bottom text-paragraph">
 
     <p class="small text-right">Last updated: April 10, 2015</p>
 
-    <p>720dreams LLC operates the <strong>{{urlWeb}}</strong>
-      website{{#if nameApp}} and the <strong>{{nameApp}} applications</strong>{{/if}} (the "Service").</p>
-
-    <p>
+    <p>720dreams LLC operates the <strong><%-urlWeb%></strong>
+      website<% if (nameApp) { %> and the <strong><%-nameApp%> applications</strong><% } %>.
+      <br>
       If you have any questions about our service, please contact us.
     </p>
 
     <address>
       <strong>720dreams LLC</strong><br>
-      455 W Evelyn Ave #1229<br>
-      Mountain View, CA 94041, USA<br>
-      <a href="mailto:{{contactMail}}">contact@720dreams.com</a>
+      455 W Evelyn Ave Ste 1229<br>
+      Mountain View, CA 94041<br>
+      United States of America<br>
+
+      <p>
+        <a href="mailto:<%- contactEmail %>">contact@720dreams.com</a>
+      </p>
     </address>
 
   </div>
 </script>
 
-<script id="not-found-template" type="text/x-handlebars-template">
+<script id="not-found-template" type="text/template">
   <div class="container margin-top text-paragraph">
     <div class="row">
       <div class="col-sm-6">
         <h3>Whoops! Page Not found</h3>
 
         <p>
-          We did not find anything in our files ...
+          We did not find anything in our files ...<br>
+          <a href="<%-urlWeb%>">Go to Home</a>
         </p>
+
       </div>
       <div class="col-sm-6">
-        <img src="/images/letter.jpg" class="max-100" alt="">
+        <a href="<%-urlWeb%>">
+          <img src="/images/letter.jpg" class="max-100" alt="">
+        </a>
       </div>
     </div>
   </div>
 </script>
 
-<script id="terms-of-service-template" type="text/x-handlebars-template">
+<script id="terms-of-service-template" type="text/template">
   <div class="container margin-top margin-bottom margin-bottom text-paragraph">
 
     <p class="small text-right">Last updated: April 08, 2015</p>
 
     <p>Please read these Terms of Service ("Terms", "Terms of Service") carefully before using the
-      <strong>{{urlWeb}}</strong>
-      website {{#if nameApp}} and the <strong>{{nameApp}} applications</strong> (together, or individually, the
-      "Service"){{else}}(the "Service"){{/if}} operated by 720dreams LLC ("us", "we", or "our").</p>
+      <strong><%-urlWeb%></strong>
+      website <% if (nameApp) { %> and the <strong><%-nameApp%> applications</strong> (together, or individually, the
+      "Service")<% } else { %>(the "Service")<% } %> operated by 720dreams LLC ("us", "we", or "our").</p>
 
 
     <p>Your access to and use of the Service is conditioned upon your acceptance of and compliance with these Terms.
@@ -290,7 +307,7 @@
 
     <p>
       If you have any questions about these Terms or have questions about
-      our practices, please contact us via email at {{contactEmail}}.
+      our practices, please contact us via email at <%-contactEmail%>.
     </p>
 
     <p class="small text-right margin-top">720dreams LLC, Mountain View, CA 94041, USA</p>
@@ -299,14 +316,15 @@
 
 </script>
 
-<script id="privacy-policy-template" type="text/x-handlebars-template">
+<script id="privacy-policy-template" type="text/template">
 
   <div class="container margin-top margin-bottom text-paragraph">
 
     <p class="small text-right">Last updated: April 08, 2015</p>
 
-    <p>720dreams LLC ("us", "we", or "our") operates the <strong>{{urlWeb}}</strong>
-      website{{#if nameApp}} and the <strong>{{nameApp}} applications</strong>{{/if}} (the "Service").</p>
+    <p>720dreams LLC ("us", "we", or "our") operates the <strong><%-urlWeb%></strong>
+      website <% if (nameApp) { %> and the <strong><%-nameApp%> applications</strong> (together, or individually, the
+      "Service")<% } else { %>(the "Service")<% } %> operated by 720dreams LLC ("us", "we", or "our").</p>
 
     <p>This page informs you of our policies regarding the collection, use and disclosure of Personal Information when
       you
@@ -336,8 +354,8 @@
 
     <p>Our Service does not collect precise information about the location of your mobile device. </p>
 
-    <p>We may disclose User Provided and Automatically Collected Information:</p>  
-    <ul> 
+    <p>We may disclose User Provided and Automatically Collected Information:</p>
+    <ul>
       <li>as required by law, such as to comply with a subpoena, or similar legal process;</li>
          
       <li>when we believe in good faith that disclosure is necessary to protect our rights, protect your safety or the 
@@ -353,20 +371,20 @@
         information, as well as any  choices you may have  regarding this information. 
       </li>
     </ul>
-    {{#if appName}}
+    <% if (nameApp) { %>
      <p>  You can stop all collection of information by the mobile application easily by uninstalling the mobile
     application.  You may use the standard uninstall processes as may be available as part of your mobile device or  via
     the mobile application marketplace or network. </p>
-    {{/if}}
+    <% } %>
 
     <h2>Data Retention Policy, Managing Your Information</h2>
 
-      <p>We will retain User Provided data for as long as you use
+    <p>We will retain User Provided data for as long as you use
     the Application and for a reasonable time  thereafter. We will retain Automatically Collected information for up to
     24
     months and thereafter  may store it in aggregate. If you’d like us to delete User Provided Data that you have
     provided
-    via  the Application, please contact us at {{contactMail}} and we will respond in a  reasonable time. Please
+    via  the Application, please contact us at <%- contactEmail %> and we will respond in a  reasonable time. Please
     note
     that some or all of the User Provided Data may be required in order  for the Application to function properly.</p>
 
@@ -480,7 +498,7 @@
 
     <p>
       If you have any questions about these Privacy Policy or have questions about
-      our practices, please contact us via email at {{contactEmail}}.
+      our practices, please contact us via email at <%-contactEmail%>.
     </p>
 
     <p class="small text-right margin-top">720dreams LLC, Mountain View, CA 94041, USA</p>
@@ -507,14 +525,12 @@
 
 <!-- build:js scripts/vendor.js -->
 <!-- bower:js -->
-<script src="bower_components/jquery/dist/jquery.js"></script>
-<script src="bower_components/handlebars/handlebars.js"></script>
+<script src="/bower_components/underscore/underscore.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
 <!-- build:js scripts/main.js -->
 <script src="scripts/main.js"></script>
-<script src="scripts/views.js"></script>
 <!-- endbuild -->
 
 </body>
