@@ -135,10 +135,10 @@
       pageTitle: getParameterByName('title', 'Information')
     };
 
-    var title = content.pageTitle
+    var title = content.pageTitle;
 
     if (content.name) {
-      title += ' | ' + content.name
+      title += ' | ' + content.name;
     }
 
     window.document.title = title;
