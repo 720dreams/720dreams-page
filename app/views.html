@@ -11,8 +11,6 @@
   <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,700" rel="stylesheet" type="text/css">
   <link rel="shortcut icon" type="image/png" href="/images/favicon.png?v1" sizes="16x16 32x32 64x64">
 
-  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
   <!-- build:css styles/vendor.css -->
   <!-- bower:css -->
   <!-- endbower -->
@@ -23,16 +21,6 @@
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild -->
 
-  <!-- build:js scripts/vendor.js -->
-  <!-- bower:js -->
-  <script src="/bower_components/jquery/dist/jquery.js"></script>
-  <script src="/bower_components/handlebars/handlebars.js"></script>
-  <!-- endbower -->
-  <!-- endbuild -->
-
-  <!-- build:js scripts/views.js -->
-  <script src="scripts/views.js"></script>
-  <!-- endbuild -->
 </head>
 <body>
 <!--[if lt IE 10]>
@@ -516,6 +504,18 @@
   ga('create', 'UA-58650764-4');
   ga('send', 'pageview');
 </script>
+
+<!-- build:js scripts/vendor.js -->
+<!-- bower:js -->
+<script src="/bower_components/jquery/dist/jquery.js"></script>
+<script src="/bower_components/handlebars/handlebars.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js scripts/main.js -->
+<script src="scripts/main.js"></script>
+<script src="scripts/views.js"></script>
+<!-- endbuild -->
 
 </body>
 </html>
