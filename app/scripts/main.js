@@ -131,10 +131,10 @@
       nameApp: getParameterByName('nameApp', ''),
       urlWeb: getParameterByName('urlWeb', 'http://720dreams.com'),
       accentColor: getParameterByName('accentColor', '#009688'),
-      pageTitle: getParameterByName('title', '')
+      pageTitle: getParameterByName('title', 'Information')
     };
 
-    document.title = content.title;
+    window.document.title = content.pageTitle;
     content.query = serialize(content);
 
     setContent(root, 'header-template', content);
@@ -143,4 +143,7 @@
   }
 
 }.call(window));
+
+
+
 
