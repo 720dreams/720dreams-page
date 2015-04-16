@@ -172,7 +172,7 @@
         };
 
         // use query param title first
-        content.pageTitle = getParameterByName(location.search, 'title', getParameterByName(locationSearch, 'title', 'Information'));
+        content.pageTitle = getParameterByName(location.search, 'title', getParameterByName(locationSearch, 'title', '404'));
         content.urlWebDisplay = getLocation(content.urlWeb).hostname;
 
         var title = content.pageTitle;
