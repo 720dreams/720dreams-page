@@ -1,0 +1,14 @@
+{
+  "global": {
+    "parseVersion": "1.4.2"
+  },
+  "applications": {
+    "720feedback": {
+      "applicationId": "d2rQTCq8v5Dy1f8qtGvdhVIIgffVUxzaJo7RjN4a",
+      "masterKey": "YOnEa98qrMVibZGzIi5P73VXN33TNEUWbJ02NTdK"
+    },
+    "_default": {
+      "link": "720feedback"
+    }
+  }
+}

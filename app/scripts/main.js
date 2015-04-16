@@ -128,7 +128,7 @@
         if (data.feedback) {
             document.getElementById('sendFeedback').innerHTML = document.getElementById('sendFeedback').innerHTML + ' ...';
             data.context = content;
-            data.name = content.name;
+            data.appName = content.name;
             data.hostname = window.location.hostname;
 
             if (data.rating) {

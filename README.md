@@ -26,12 +26,21 @@ gulp
 
 Deployment is done with codeship.com
 
+## Feedbacks
+
+Feedbacks are handled with [parse](https://www.parse.com/apps/720feedback--2/collections#class/Feedback)
+Currently not deployed with codeship:
+
+```
+cd parse-cloud-code
+parse deploy
+```
+
+* https://gist.github.com/mlocher/9ec0c502f0b9c8b23df3
+
 ## Todo
 
 * Encrypt encoded params: http://travistidwell.com/jsencrypt/demo/index.html
-
-* Feedback Mail https://www.parse.com/apps/720feedback--2/collections#class/Feedback
-* https://parse.com/docs/cloud_code_guide#functions-aftersave
 
 © [720dreams LLC](http://720dreams.com)
 
