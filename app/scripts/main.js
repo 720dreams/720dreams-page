@@ -129,6 +129,7 @@
             document.getElementById('sendFeedback').innerHTML = document.getElementById('sendFeedback').innerHTML + ' ...';
             data.context = content;
             data.name = content.name;
+            data.hostname = window.location.hostname;
 
             if (data.rating) {
                 data.rating = parseInt(data.rating, 10);
@@ -148,7 +149,6 @@
             d.className = d.className + ' invalid';
             document.getElementById('feedback-error').innerHTML = 'Feedback is required';
         }
-
     }
 
     function loadContent() {
