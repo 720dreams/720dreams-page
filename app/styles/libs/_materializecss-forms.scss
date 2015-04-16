@@ -8,7 +8,7 @@ $input-disabled-color: rgba(0, 0, 0, .26);
 $input-success-color: $success;
 $input-error-color: $error;
 
-$label-font-size: 0.75em;
+$label-font-size: inherit;
 
 @mixin transition($args: 200ms) {
     -webkit-transition: $args;
