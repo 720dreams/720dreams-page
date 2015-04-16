@@ -29,14 +29,16 @@ Deployment is done with codeship.com
 ## Feedbacks
 
 Feedbacks are handled with [parse](https://www.parse.com/apps/720feedback--2/collections#class/Feedback)
-Currently not deployed with codeship:
+Currently not deployed with codeship: https://gist.github.com/mlocher/9ec0c502f0b9c8b23df3
+
+Deploy
 
 ```
 cd parse-cloud-code
 parse deploy
 ```
 
-* https://gist.github.com/mlocher/9ec0c502f0b9c8b23df3
+Attention: there are some private parse keys in the repo
 
 ## Todo
 
