@@ -28,7 +28,8 @@ Deployment is done with codeship.com
 
 ## Todo
 
-* Encode generic ToS and PP get parameters with [base64](https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/Base64_encoding_and_decoding), and process the html files with gulp command
+* Encrypt encoded params: http://travistidwell.com/jsencrypt/demo/index.html
+* Feedback Mail https://www.parse.com/apps/720feedback--2/collections#class/Feedback
 
 © [720dreams LLC](http://720dreams.com)
 
