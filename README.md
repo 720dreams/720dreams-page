@@ -29,7 +29,9 @@ Deployment is done with codeship.com
 ## Todo
 
 * Encrypt encoded params: http://travistidwell.com/jsencrypt/demo/index.html
+
 * Feedback Mail https://www.parse.com/apps/720feedback--2/collections#class/Feedback
+* https://parse.com/docs/cloud_code_guide#functions-aftersave
 
 © [720dreams LLC](http://720dreams.com)
 
