@@ -1,8 +1,8 @@
 function getFormObject(form) {
+    var result = {};
     if (!form || form.nodeName !== "FORM") {
         return
     }
-    result = {}
     var i, j;
     for (i = form.elements.length - 1; i >= 0; i = i - 1) {
         if (form.elements[i].name === "") {
