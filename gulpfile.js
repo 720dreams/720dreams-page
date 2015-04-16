@@ -8,6 +8,7 @@ var reload = browserSync.reload;
 var htmlhint = require('gulp-htmlhint');
 var rev = require('gulp-rev');
 var revReplace = require('gulp-rev-replace');
+var encodeReplace = require('gulp-encode-href-replace');
 
 gulp.task('styles', function () {
   return gulp.src('app/styles/main.scss')
@@ -160,8 +161,15 @@ gulp.task('revreplace', ['revision'], function () {
     .pipe(gulp.dest('dist'));
 });
 
+gulp.task('encodeReplace', [], function () {
+  return gulp.src('dist/*.html')
+    .pipe(encodeReplace())
+    .pipe(gulp.dest('dist'));
+});
+
 gulp.task('build', ['validate', 'html', 'images', 'fonts', 'extras'], function () {
   gulp.start('revreplace');
+  gulp.start('encodeReplace');
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 

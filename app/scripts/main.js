@@ -81,15 +81,11 @@
    *
    * */
 
-  function getParameterByName(name, defaultValue) {
-
-    if (defaultValue === null) {
-      defaultValue = '';
-    }
+  function getParameterByName(searchString, name, defaultValue) {
 
     name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
     var regex = new RegExp('[\\?&]' + name + '=([^&#]*)'),
-      results = regex.exec(location.search);
+      results = regex.exec(searchString);
     return results === null ? defaultValue : decodeURIComponent(results[1].replace(/\+/g, ' '));
   }
 
@@ -131,16 +127,24 @@
   var root = document.getElementById('content');
   if (root) {
 
+    var locationSearch = location.search;
+    var encoded = getParameterByName(locationSearch, 'encoded', '');
+
+    if (encoded) {
+      locationSearch = '?' + window.Encode.decode(encoded);
+    }
+
     var content = {
-      contactEmail: getParameterByName('contactEmail', 'conact@720dreams.com'),
-      logo: getParameterByName('logo', ''),
-      nameApp: getParameterByName('nameApp', ''),
-      name: getParameterByName('name', getParameterByName('nameApp', '')),
-      urlWeb: getParameterByName('urlWeb', 'http://720dreams.com'),
-      accentColor: getParameterByName('accentColor', '#009688'),
-      pageTitle: getParameterByName('title', 'Information')
+      contactEmail: getParameterByName(locationSearch, 'contactEmail', 'conact@720dreams.com'),
+      logo: getParameterByName(locationSearch, 'logo', ''),
+      nameApp: getParameterByName(locationSearch, 'nameApp', ''),
+      name: getParameterByName(locationSearch, 'name', getParameterByName(locationSearch, 'nameApp', '')),
+      urlWeb: getParameterByName(locationSearch, 'urlWeb', 'http://720dreams.com'),
+      accentColor: getParameterByName(locationSearch, 'accentColor', '#009688')
     };
 
+    // use query param title first
+    content.pageTitle = getParameterByName(location.search, 'title', getParameterByName(locationSearch, 'title', 'Information'));
     content.urlWebDisplay = getLocation(content.urlWeb).hostname;
 
     var title = content.pageTitle;
@@ -149,8 +153,11 @@
     }
     window.document.title = title;
 
-    content.query = serialize(content);
-
+    if (encoded) {
+      content.query = 'encoded='+encoded;
+    } else {
+      content.query = serialize(content);
+    }
     setContent(root, 'header-template', content);
     setContent(root, slugify(content.pageTitle) + '-template', content);
     setContent(root, 'footer-template', content);

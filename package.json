@@ -10,6 +10,7 @@
     "gulp": "^3.6.0",
     "gulp-cache": "^0.2.2",
     "gulp-csso": "^0.2.6",
+    "gulp-encode-href-replace": "git+https://github.com/720dreams/gulp-encode-href-replace.git",
     "gulp-htmlhint": "^0.1.1",
     "gulp-if": "^1.2.1",
     "gulp-imagemin": "^2.0.0",
