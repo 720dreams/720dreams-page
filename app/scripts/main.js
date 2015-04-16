@@ -168,7 +168,8 @@
             urlWeb: getParameterByName(locationSearch, 'urlWeb', 'http://720dreams.com'),
             accentColor: getParameterByName(locationSearch, 'accentColor', '009688'),
             userName: getParameterByName(locationSearch, 'userName', ''),
-            userEmail: getParameterByName(locationSearch, 'userEmail', '')
+            userEmail: getParameterByName(locationSearch, 'userEmail', ''),
+            locationSearch: locationSearch
         };
 
         // use query param title first
