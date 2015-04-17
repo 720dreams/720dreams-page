@@ -43,6 +43,7 @@ Attention: there are some private parse keys in the repo
 ## Todo
 
 * Encrypt encoded params: http://travistidwell.com/jsencrypt/demo/index.html
+* https://github.com/kjur/jsrsasign
 
 © [720dreams LLC](http://720dreams.com)
 
