@@ -157,7 +157,7 @@
             encoded = getParameterByName(locationSearch, 'encoded', '');
 
         if (encoded === '') {
-            encoded = getParameterByName(locationSearch, 'data', '')
+            encoded = getParameterByName(locationSearch, 'data', '');
         }
 
 
