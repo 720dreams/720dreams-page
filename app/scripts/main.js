@@ -153,8 +153,13 @@
 
     function loadContent() {
 
-        var locationSearch = location.search;
-        var encoded = getParameterByName(locationSearch, 'encoded', '');
+        var locationSearch = location.search,
+            encoded = getParameterByName(locationSearch, 'encoded', '');
+
+        if (encoded === '') {
+            encoded = getParameterByName(locationSearch, 'data', '')
+        }
+
 
         if (encoded) {
             locationSearch = '?' + window.Encode.decode(encoded);
