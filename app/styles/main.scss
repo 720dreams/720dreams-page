@@ -3,6 +3,7 @@ $icon-font-path: '../fonts/';
 @import "variables";
 @import "btn";
 @import "libs/materializecss-forms";
+@import "cards";
 
 // bower:scss
 // endbower
@@ -47,6 +48,10 @@ a {
     margin: 10px;
     border: solid #D32F2F;
     color: $error;
+}
+
+.bg-stable {
+    background-color: $bg-stable;
 }
 
 .error {
