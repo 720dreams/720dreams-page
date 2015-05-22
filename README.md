@@ -28,8 +28,8 @@ Deployment is done with codeship.com
 
 ## Feedbacks
 
-Feedbacks are handled with [parse](https://www.parse.com/apps/720feedback--2/collections#class/Feedback)
-Currently not deployed with codeship: https://gist.github.com/mlocher/9ec0c502f0b9c8b23df3
+Feedbacks are handled with [parse](https://www.parse.com/apps/720feedback--2/collections#class/Feedback) 
+and also deployed with codeship.com
 
 Deploy
 

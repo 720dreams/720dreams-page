@@ -9,7 +9,7 @@ Parse.Cloud.afterSave("Feedback", function (request) {
         rawFeedback;
 
     delete object.context;
-    rawFeedback = JSON.stringify(object, null, '\t')
+    rawFeedback = JSON.stringify(object, null, '\t');
 
     sendgrid.sendEmail({
         to: ["contact@720dreams.com"],
@@ -24,4 +24,20 @@ Parse.Cloud.afterSave("Feedback", function (request) {
 
 });
 
+Parse.Cloud.afterSave("EarlyAccess", function (request) {
 
+    var object = request.object,
+        raw = JSON.stringify(object, null, '\t');
+
+    sendgrid.sendEmail({
+        to: ["contact@720dreams.com"],
+        from: "contact@cardbird.io",
+        subject: "New EarlyAccess request",
+        text: 'Hi,\n\nEarlyAccess: \n' + raw,
+        replyto: "contact@cardbird.io"
+    }).then(function (httpResponse) {
+    }, function (httpResponse) {
+        console.log('Error: ', httpResponse);
+    });
+
+});
